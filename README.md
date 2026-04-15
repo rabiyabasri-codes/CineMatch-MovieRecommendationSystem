@@ -13,14 +13,14 @@ A full-stack Java-based movie recommendation engine with a beautiful offline HTM
 | **130 Movies** | Action, Crime, Sci-Fi, Drama, Comedy, Animation, Horror, Bollywood |
 | **Smart Recommendations** | Genre-weighted scoring + collaborative filtering |
 | **Multi-User** | Switch between users, each with independent history |
-| **Movie Posters** | Real TMDB poster images (loads from CDN, no API key needed) |
+| **Movie Posters** | Local poster images from `src/posters/` (manual placement required) |
 | **Search** | Search by title, genre, or tag — with live dropdown |
 | **Rating System** | 1–5 star ratings that influence future recommendations |
 | **Watch History** | Per-user history with remove/clear functionality |
 | **Genre Filter** | Filter any tab by genre with one click |
 | **8 Discover Tabs** | Trending, Bollywood, Top Rated, Action, Drama, Sci-Fi, Horror, Comedy |
 | **Similarity Matrix** | Cosine similarity between all users (console) |
-| **Offline Mode** | Entire frontend runs with zero backend or internet (posters are CDN images only) |
+| Offline Mode | Entire frontend runs with zero backend or internet (posters load locally from `src/posters/`) |
 
 ---
 
@@ -210,14 +210,14 @@ Swap the implementation in `RecommendationEngine.java`. The `SimilarityStrategy`
 | Algorithm | Cosine Similarity (collaborative filtering) |
 | Frontend | Vanilla HTML5 / CSS3 / JavaScript (ES2022) |
 | Fonts | Playfair Display, DM Sans, Space Mono |
-| Images | TMDB image CDN (no API key, public poster URLs) |
+| Images | Local poster images loaded from `src/posters/` |
 | Persistence | Custom file serialisation via `FileHandler.java` |
 
 ---
 
 ## 📝 Known Limitations
 
-- **Posters**: TMDB CDN requires internet. In a fully offline environment, posters show a stylised placeholder — all functionality still works.
+- **Posters**: Loaded from `src/posters/`. If local poster files are missing, the UI shows stylised placeholders — all functionality still works.
 - **Frontend ↔ Backend sync**: The HTML frontend and Java backend are currently independent. User actions in the browser don't update the Java engine and vice versa. To bridge them, a local HTTP server (e.g. `com.sun.net.httpserver`) could be added.
 - **Persistence**: Java file-based persistence; not a database. Suitable for demo/coursework scale.
 

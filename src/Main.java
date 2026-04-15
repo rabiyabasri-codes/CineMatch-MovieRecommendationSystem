@@ -73,6 +73,7 @@ public class Main {
 
             System.out.println("  [>>] Opening CineMatch UI: " + htmlFile.getName());
 
+            // ✅ Cross-platform OS detection
             String os = System.getProperty("os.name").toLowerCase();
             if (os.contains("win")) {
                 Runtime.getRuntime().exec(new String[]{
@@ -244,7 +245,6 @@ public class Main {
 
     // ─────────────────────────────────────────────────
     //  SAMPLE DATA  (matches CineMatch.html database)
-    //  130 movies across Hollywood + Bollywood
     // ─────────────────────────────────────────────────
     private static void seedSampleData() {
 
